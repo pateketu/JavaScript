@@ -1,26 +1,42 @@
 var webpack = require('webpack');
+var path = require('path');
+
 
 module.exports = {
     context: __dirname,
     entry: {
         app: ['./app/app.js'],
-        vendor: ['angular']  
+        vendor: ['angular', 'kendo', 'angular-animate']
     },
     output: {
-        path: __dirname + '/js',
-        filename: 'app.bundle.js',
-        publicPath: '/js/'
+        path: __dirname,
+        filename: 'js/app.bundle.js',
+        publicPath: '/'
     },
     cache: true,
+    module: {
+        loaders: [{
+                test: /\.scss$/,
+                loader: "style!css!sass"
+            },
+            { test: /\.html$/, loader: 'ng-cache' }
+        ],
+
+
+    },
     resolve: {
-  root: [
-             __dirname + '/app'
-        ]
-},
+        modulesDirectories: ['node_modules', 'bower_components'],
+        root: [
+            __dirname + '/app'
+        ],
+        alias: {
+            'myServices': path.resolve(__dirname, 'app/services')
+        }
+    },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js")
+        new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendor", /* filename= */ "js/vendor.bundle.js")
     ],
-    devServer : {
-    contentBase : __dirname
-  }
+    devServer: {
+        contentBase: __dirname
+    }
 };

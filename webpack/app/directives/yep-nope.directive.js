@@ -3,7 +3,7 @@ function YepNopeDirective() {
     restrict: 'E',
     link: function (scope, element, attrs) {
       scope.$watch(attrs.check, function (val) {
-        var words = val ? 'yes' : 'fubar';
+        var words = val ? 'fff' : 'fubar';
         element.text(words);
       });
     }

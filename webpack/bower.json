@@ -1,0 +1,17 @@
+{
+    "name": "propman",
+    "version": "0.0.1",
+    "description": "propman",
+    "authors": [],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "angular-animate": "^1.5.8"
+    }
+}
