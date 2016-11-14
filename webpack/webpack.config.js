@@ -6,7 +6,7 @@ module.exports = {
     context: __dirname,
     entry: {
         app: ['./app/app.js'],
-        vendor: ['angular', 'kendo', 'angular-animate']
+        vendor: ['angular', 'angular-animate']
     },
     output: {
         path: __dirname,

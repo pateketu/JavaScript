@@ -7,7 +7,7 @@ module.exports = {
     context: __dirname,
     entry: {
         app: ['./app/app.js'],
-        vendor: ['angular', 'kendo', 'angular-animate']
+        vendor: ['angular', 'angular-animate']
     },
     devtool: 'source-map',
     output: {
