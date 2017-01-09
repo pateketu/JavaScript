@@ -7,6 +7,10 @@
 
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
 
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.3.1118/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.3.1118/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2016.3.1118/styles/kendo.default.mobile.min.css" />
+
     <script src="js/vendor.bundle.js"></script>
     <script src="js/app.bundle.js"></script>
 
@@ -14,6 +18,9 @@
 
 <body ng-app="dashboard">
     <div class="container">
+        <spinner name="testSpinner" img-src="">
+            <h1>Loading.............</h1>
+        </spinner>
         <br />
         <div ng-controller="dashboardController as ctrl">
             <div class="alert alert-danger" ng-class="{'alert-danger': !ctrl.github, 'alert-success': ctrl.github}">Is GitHub Up?
@@ -21,6 +28,7 @@
             </div>
         </div>
     </div>
+    <grid/>
     <div ng-include="'app/test.html'"></div>
 </body>
 

@@ -1,8 +1,9 @@
 /// <reference path="../typings/index.d.ts" />
-var angular = require('angular');
-angular.module('dashboard', ['ngAnimate']);
+
+angular.module('dashboard', ['kendo.directives', 'ngAnimate', 'angularSpinners', 'kendo.window']);
 require('./directives');
 require('./controllers');
+require('./components');
 //require("style!raw!./myApp.css");
 require('./styles.scss');
 require('test.html');

@@ -10,30 +10,24 @@ webpackJsonp([0],[
 /***/ function(module, exports, __webpack_require__) {
 
 	/// <reference path="../typings/index.d.ts" />
-	var angular = __webpack_require__(2);
-	angular.module('dashboard', ['ngAnimate']);
+
+	angular.module('dashboard', ['kendo.directives', 'ngAnimate']);
+	__webpack_require__(2);
 	__webpack_require__(4);
-	__webpack_require__(6);
+	__webpack_require__(7);
 	//require("style!raw!./myApp.css");
 	__webpack_require__(9);
 	__webpack_require__(13);
 
 /***/ },
-/* 2 */,
-/* 3 */,
-/* 4 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	var angular = __webpack_require__(2);
-
-	angular.module('dashboard').directive('yepNope', __webpack_require__(5));
-
-
+	angular.module('dashboard').directive('yepNope', __webpack_require__(3));
 
 /***/ },
-/* 5 */
+/* 3 */
 /***/ function(module, exports) {
 
 	function YepNopeDirective() {
@@ -51,21 +45,20 @@ webpackJsonp([0],[
 	module.exports = YepNopeDirective;
 
 /***/ },
-/* 6 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var angular = __webpack_require__(2);
 
-	angular.module('dashboard').controller('dashboardController', __webpack_require__(7));
+	angular.module('dashboard').controller('dashboardController', __webpack_require__(5));
 
 /***/ },
-/* 7 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	__webpack_require__(8);
+	__webpack_require__(6);
 	DashboardController.$inject = ['GithubStatusService', '$http'];
 
 	function DashboardController(gh) {
@@ -81,11 +74,11 @@ webpackJsonp([0],[
 	module.exports = DashboardController;
 
 /***/ },
-/* 8 */
-/***/ function(module, exports, __webpack_require__) {
+/* 6 */
+/***/ function(module, exports) {
 
 	'use strict';
-	var angular = __webpack_require__(2);
+
 	angular.module('dashboard').service('GithubStatusService', GithubStatusService);
 
 	GithubStatusService.$inject = ['$http'];
@@ -112,6 +105,55 @@ webpackJsonp([0],[
 	}
 
 	module.exports = GithubStatusService;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	angular.module('dashboard').component('grid', __webpack_require__(8));
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	(function() {
+	    'use strict';
+	    var grid = {
+	        template: '<div kendo-grid k-data-source="$ctrl.gridData" k-columns="$ctrl.gridColumns" k-selectable="true" k-on-change="$ctrl.onChange(data)"></div',
+	        controller: SearchResultsGridController,
+	        bindings: {
+	            pageData: '=',
+	        }
+	    };
+
+
+	    SearchResultsGridController.$inject = [];
+
+	    function SearchResultsGridController() {
+	        var ctrl = this;
+
+	        ctrl.gridData = new kendo.data.ObservableArray([
+	            { artist: 'Pink Floyd', track: 'The dark side of the Moon' },
+	            { artist: 'The Beatles', track: 'I\'ve just seen a face' },
+	            { artist: 'Queen', track: 'Innuendo' }
+	        ]);
+	        ctrl.gridColumns = [
+	            { field: 'artist', title: 'Artist' },
+	            { field: 'track', title: 'Track' }
+	        ];
+	        ctrl.update = function() {
+	            ctrl.gridData[0].set('track', 'Hey you');
+	        };
+	        ctrl.onChange = function(data) {
+	            ctrl.selected = data;
+	        };
+	    }
+
+	    module.exports = grid;
+
+	})();
 
 /***/ },
 /* 9 */
@@ -148,7 +190,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, "body {\n  background: blue; }\n\n.fubar {\n  background: red; }\n", ""]);
+	exports.push([module.id, "", ""]);
 
 	// exports
 

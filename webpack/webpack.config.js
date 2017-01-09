@@ -6,7 +6,7 @@ module.exports = {
     context: __dirname,
     entry: {
         app: ['./app/app.js'],
-        vendor: ['angular', 'angular-animate']
+        vendor: ['angular', 'kendo', 'angular-animate', 'angular-spinners', 'angular-kendo-window']
     },
     output: {
         path: __dirname,
@@ -34,7 +34,12 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendor", /* filename= */ "js/vendor.bundle.js")
+
+        new webpack.optimize.CommonsChunkPlugin( /* chunkName= */ "vendor", /* filename= */ "js/vendor.bundle.js"),
+        new webpack.ProvidePlugin({
+            'window.jQuery': 'jquery'
+        })
+
     ],
     devServer: {
         contentBase: __dirname

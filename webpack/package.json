@@ -33,8 +33,11 @@
         "webpack-dev-middleware": "^1.8.1",
         "webpack-hot-middleware": "^2.12.2"
     },
-    "dependencies": {        
-        "kendo-ui-core": "^2016.3.1028",
-        "angular": "^1.5.0"
+    "dependencies": {
+        "angular": "^1.5.0",
+        "angular-animate": "^1.5.8",
+        "angular-spinners": "^3.1.2",
+        "kendo": "git+https://Savas.Kervanoglu%40grosvenorsystems.com:Gros3535@bower.telerik.com/npm-kendo-ui.git",
+        "angular-kendo-window": "git+https://github.com/kjartanvalur/angular-kendo-window.git"
     }
 }
