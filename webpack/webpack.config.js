@@ -10,7 +10,8 @@ module.exports = {
     },
     output: {
         path: __dirname,
-        filename: 'js/app.bundle.js',
+        filename: 'js/[name].bundle.js',
+        chunkFilename: 'js/async/[id].js',
         publicPath: '/'
     },
     cache: true,
